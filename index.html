@@ -22,11 +22,18 @@
 
 			<br>
 
-			<ul>
-				<li ng-repeat="notification in notifications">
-					{{ notification.id }}
-				</li>
-			</ul>
+			<div flex-gt-sm="50" flex>
+				<md-content>
+					<md-list flex>
+						<md-list-item class="md-3-line" ng-repeat="notification in notifications" ng-click="null">
+							<div class="md-list-item-text" layout="column">
+								<h3>{{ notification.title }}</h3>
+								<p>{{ notification.text }}</p>
+							</div>
+						</md-list-item>
+					</md-list>
+				</md-content>
+			</div>
 		</div>
 	</body>
 </html>

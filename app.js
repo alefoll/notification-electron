@@ -10,8 +10,8 @@ const connection = mysql.createConnection({
 
 const app = angular.module('Notification', [ 'ngMaterial' ]);
 
-app.factory('NotificationService', () => {
-	return new Promise((resolve, reject) => {
+app.factory('NotificationService', ['$q', ($q) => {
+	return $q((resolve, reject) => {
 		connection.connect();
 
 		connection.query('SELECT * FROM notif', (err, rows, fields) => {
@@ -19,18 +19,14 @@ app.factory('NotificationService', () => {
 				throw err;
 
 			resolve(rows);
-			// resolve(["Test", "1, 2"]);
 		});
 
 		connection.end();
 	});
-});
+}]);
 
 app.controller('NotificationController', ['$scope', 'NotificationService', ($scope, NotificationService) => {
 	NotificationService.then((notifications) => {
-		console.log(notifications);
-
 		$scope.notifications = notifications;
 	});
-
 }]);
