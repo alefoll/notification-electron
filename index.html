@@ -18,22 +18,30 @@
 
 	<body ng-app="Notification">
 		<div ng-controller="NotificationController">
-			<h1>Notification : {{ notifications.length }}</h1>
+			<md-toolbar>
+				<div class="md-toolbar-tools">
+					<h2>
+						<span>Notification : {{ notifications.length }}</span>
+					</h2>
 
-			<br>
+					<span flex></span>
 
-			<div flex-gt-sm="50" flex>
-				<md-content>
-					<md-list flex>
-						<md-list-item class="md-3-line" ng-repeat="notification in notifications" ng-click="null">
-							<div class="md-list-item-text" layout="column">
-								<h3>{{ notification.title }}</h3>
-								<p>{{ notification.text }}</p>
-							</div>
-						</md-list-item>
-					</md-list>
-				</md-content>
-			</div>
+					<md-button class="md-icon-button" ng-click="reload()" aria-label="Reload">
+						<md-icon md-svg-icon="img/reload.svg"></md-icon>
+					</md-button>
+				</div>
+			</md-toolbar>
+
+			<md-content flex>
+				<md-list flex>
+					<md-list-item class="md-3-line" ng-repeat="notification in notifications" ng-click="null">
+						<div class="md-list-item-text" layout="column">
+							<h3>{{ notification.title }}</h3>
+							<p>{{ notification.text }}</p>
+						</div>
+					</md-list-item>
+				</md-list>
+			</md-content>
 		</div>
 	</body>
 </html>
