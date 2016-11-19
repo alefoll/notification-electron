@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+		<title>Notification</title>
+
+		<link rel="stylesheet" href="css/vendors.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+
+	<body>
+		<div ng-controller="NotificationController">
+			<md-toolbar>
+				<div class="md-toolbar-tools">
+					<h2>
+						<span>Notification : {{ notifications.length }}</span>
+					</h2>
+
+					<span flex></span>
+
+					<md-button class="md-icon-button" ng-click="reload()" aria-label="Reload">
+						<md-icon md-svg-icon="assets/reload.svg"></md-icon>
+					</md-button>
+				</div>
+			</md-toolbar>
+
+			<md-content flex>
+				<md-list flex>
+					<md-list-item class="md-3-line" ng-repeat="notification in notifications" ng-click="null">
+						<div class="md-list-item-text" layout="column">
+							<h3>{{ notification.title }}</h3>
+							<p>{{ notification.text }}</p>
+						</div>
+					</md-list-item>
+				</md-list>
+			</md-content>
+		</div>
+
+		<script src="js/vendors.min.js"></script>
+		<script src="js/app.min.js"></script>
+	</body>
+</html>
