@@ -15,12 +15,12 @@
 			<md-toolbar>
 				<div class="md-toolbar-tools">
 					<h2>
-						<span>Notification : {{ notifications.length }}</span>
+                        <span>Notification : {{ notifications().length }}</span>
 					</h2>
 
 					<span flex></span>
 
-					<md-button class="md-icon-button" ng-click="reload()" aria-label="Reload">
+					<md-button class="md-icon-button" ng-click="update()" aria-label="Update">
 						<md-icon md-svg-icon="assets/reload.svg"></md-icon>
 					</md-button>
 				</div>
@@ -28,7 +28,7 @@
 
 			<md-content flex>
 				<md-list flex>
-					<md-list-item class="md-3-line" ng-repeat="notification in notifications" ng-click="null">
+					<md-list-item class="md-3-line" ng-repeat="notification in notifications()" ng-click="null">
 						<div class="md-list-item-text" layout="column">
 							<h3>{{ notification.title }}</h3>
 							<p>{{ notification.text }}</p>

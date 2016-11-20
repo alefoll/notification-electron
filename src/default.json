@@ -13,6 +13,11 @@
     "tray": {
         "name": "Notification"
     },
+    "socket": {
+        "address": "//localhost:8080",
+        "username": "user",
+        "password": "pass"
+    },
     "global": {
         "port": 4000
     }

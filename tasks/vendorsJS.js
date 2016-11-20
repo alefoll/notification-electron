@@ -16,7 +16,8 @@ module.exports = () => {
         dependencies + '/angular/angular.js',
         dependencies + '/angular-aria/angular-aria.js',
         dependencies + '/angular-animate/angular-animate.js',
-        dependencies + '/angular-material/angular-material.js'
+        dependencies + '/angular-material/angular-material.js',
+        dependencies + '/socket.io-client/socket.io.js'
     ])
     .pipe(concat('vendors.min.js', { newLine: "\n" }))
     .pipe(sourcemaps.init())
